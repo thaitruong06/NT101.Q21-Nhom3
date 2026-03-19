@@ -10,5 +10,17 @@ iv = b'0000000000000000'
 cipher_cbc = AES.new(key, AES.MODE_CBC, iv)
 ct_cbc = cipher_cbc.encrypt(plaintext)
 
+cipher_cfb = AES.new(key, AES.MODE_CFB, iv=iv)
+ct_cfb = cipher_cfb.encrypt(plaintext)
+
+cipher_ofb = AES.new(key, AES.MODE_OFB, iv=iv)
+ct_ofb = cipher_ofb.encrypt(plaintext)
+
+cipher_ctr = AES.new(key, AES.MODE_CTR) 
+ct_ctr = cipher_ctr.encrypt(plaintext)
+
 print(f"ECB: {ct_ecb.hex()}")
 print(f"CBC: {ct_cbc.hex()}")
+print(f"CFB: {ct_cfb.hex()}")
+print(f"OFB: {ct_ofb.hex()}")
+print(f"CTR: {ct_ctr.hex()}")
