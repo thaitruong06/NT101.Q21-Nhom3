@@ -9,15 +9,11 @@ def hamming_distance(b1, b2):
 def avalanche_test(key):
     p1 = b'STAYHOME'
     p2 = b'STAYHOMA'# Chỉ khác 1 ký tự cuối so với p1
-
     cipher = DES.new(key, DES.MODE_ECB)
-
     c1 = cipher.encrypt(p1)
     c2 = cipher.encrypt(p2)
-
     b1 = to_bin(c1)
     b2 = to_bin(c2)
-
     diff = hamming_distance(b1, b2)
     percent = diff / 64 * 100
 
